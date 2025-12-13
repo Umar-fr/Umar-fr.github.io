@@ -5,6 +5,7 @@ import { Projects } from '@/components/projects';
 import { Skills } from '@/components/skills';
 import { Contact } from '@/components/contact';
 import { Footer } from '@/components/footer';
+import { GitHubActivity } from '@/components/github-activity';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <Projects />
       <Skills />
+      <GitHubActivity />
       <Contact />
       <Footer />
     </main>
