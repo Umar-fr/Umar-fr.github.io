@@ -20,8 +20,12 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-block mb-6"
           >
-            <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-5xl font-bold text-white">U</span>
+            <div className="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+              <img 
+                src="/myphoto.jpg" 
+                alt="Umar's Profile Photo" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
