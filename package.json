@@ -2,12 +2,12 @@
   "name": "portfolio-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "export": "next build && next export"
+    "lint": "eslint"
   },
   "dependencies": {
     "framer-motion": "^12.23.26",

@@ -11,6 +11,9 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
+  turbopack: {
+    root: './',
+  },
   // Set basePath if using a project repo (change 'username/repo' to your actual repo name)
   // basePath: '/portfolio',
   // Uncomment above if your repo is NOT named 'username.github.io'
