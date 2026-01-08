@@ -101,13 +101,14 @@ export function Footer() {
             className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left"
           >
             <p className="text-gray-400 text-sm">
-              © {currentYear} Mohd Umar Farooq. All rights reserved.
+              © {currentYear} Mohd Umar Farooq. All rights reserved. <br></br>v {process.env.NEXT_PUBLIC_APP_VERSION}
             </p>
             <p className="text-gray-400 text-sm">
               Built with{' '}
               <span className="text-indigo-400">Next.js</span>,{' '}
               <span className="text-indigo-400">TypeScript</span>, and{' '}
               <span className="text-indigo-400">Tailwind CSS</span>
+
             </p>
           </motion.div>
         </div>

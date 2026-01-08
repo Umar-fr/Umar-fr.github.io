@@ -20,20 +20,23 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-block mb-6"
           >
-            <div className="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
-              <img 
-                src="/myphoto.jpg" 
-                alt="Umar's Profile Photo" 
-                className="w-full h-full object-cover"
-              />
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-1 shadow-lg">
+              <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-900">
+                <img
+                  src="/myphoto.jpg"
+                  alt="Umar's Profile Photo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
+
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl sm:text-7xl font-bold text-gray-900 dark:text-white mb-6"
+            className="text-5xl sm:text-7xl font-bold text-gray-500 dark:text-white mb-6"
           >
             Mohd Umar Farooq
           </motion.h1>
@@ -75,7 +78,7 @@ export function Hero() {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg font-semibold hover:border-indigo-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="px-8 py-3 border-2 border-gray-300 dark:border-indigo-500 text-gray-700 rounded-lg font-semibold hover:border-indigo-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               Get in Touch
             </motion.a>

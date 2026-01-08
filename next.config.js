@@ -1,22 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Enable static export for GitHub Pages
+  output: "export",
+
   images: {
-    unoptimized: true, // Disable Image Optimization for static export
+    unoptimized: true,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: "https",
+        hostname: "**",
       },
     ],
   },
+
   reactStrictMode: true,
+
   turbopack: {
-    root: './',
+    root: "./",
   },
-  // Set basePath if using a project repo (change 'username/repo' to your actual repo name)
-  // basePath: '/portfolio',
-  // Uncomment above if your repo is NOT named 'username.github.io'
+
+  env: {
+    NEXT_PUBLIC_APP_VERSION: process.env.npm_package_version,
+  },
 };
 
 export default nextConfig;
