@@ -6,3 +6,4 @@ font color on dark theme
 🔄 Toggle works correctly
 🚫 No hydration warning / flashing
 🎯 Tailwind dark: classes activate properly
+Needs fixes for the theme toggle
