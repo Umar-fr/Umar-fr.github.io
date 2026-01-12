@@ -18,46 +18,119 @@ type GitHubStats = {
   streak: number;
 };
 
-type GitHubActivityProps = {
-  username: string;
+type GitHubEvent = {
+  created_at: string;
+};
+
+type GitHubUser = {
+  followers: number;
+  public_repos: number;
 };
 
 /* --------------------------- Component ---------------------------- */
 
-export function GitHubActivity({ username }: GitHubActivityProps) {
+export function GitHubActivity() {
   const [contributionData, setContributionData] = useState<ContributionDay[]>([]);
   const [stats, setStats] = useState<GitHubStats | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchGitHubData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(`/api/github?username=${username}`);
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to fetch data');
-        }
-        const data = await response.json();
-        setContributionData(data.contributions);
-        setStats(data.stats);
-        setError(null);
-      } catch (err: unknown) {
-        const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
-        setError(`Failed to load GitHub data: ${errorMessage}`);
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+    fetchGitHubData();
+  }, []);
 
-    if (username) {
-      fetchGitHubData();
+  /* ------------------------ Data Fetching ------------------------- */
+
+  const fetchGitHubData = async (): Promise<void> => {
+    try {
+      setLoading(true);
+      const username = 'umar-fr';
+
+      // User stats
+      const userResponse = await fetch(`https://api.github.com/users/${username}`);
+      const userData: GitHubUser = await userResponse.json();
+
+      // Repositories
+      const reposResponse = await fetch(
+        `https://api.github.com/users/${username}/repos?per_page=100`
+      );
+      const reposData: unknown = await reposResponse.json();
+
+      // Public events
+      let allEvents: GitHubEvent[] = [];
+
+      for (let page = 1; page <= 10; page++) {
+        const response = await fetch(
+          `https://api.github.com/users/${username}/events/public?per_page=100&page=${page}`
+        );
+        const events: GitHubEvent[] | unknown = await response.json();
+
+        if (!Array.isArray(events) || events.length === 0) break;
+        allEvents = allEvents.concat(events);
+      }
+
+      /* ------------------ Build contribution map ------------------ */
+
+      const contributionMap: Record<string, number> = {};
+      const today = new Date();
+
+      for (let i = 364; i >= 0; i--) {
+        const date = new Date(today);
+        date.setDate(today.getDate() - i);
+        const key = date.toISOString().split('T')[0];
+        contributionMap[key] = 0;
+      }
+
+      allEvents.forEach((event) => {
+        const dateKey = event.created_at.split('T')[0];
+        if (dateKey in contributionMap) {
+          contributionMap[dateKey]++;
+        }
+      });
+
+      const contributions: ContributionDay[] = Object.entries(contributionMap)
+        .map(([date, count]) => ({
+          date,
+          count,
+          intensity: count === 0 ? 0 : Math.min(Math.floor(count / 2) + 1, 5),
+        }))
+        .sort((a, b) => a.date.localeCompare(b.date));
+
+      setContributionData(contributions);
+
+      const totalContributions = contributions.reduce(
+        (sum, day) => sum + day.count,
+        0
+      );
+
+      setStats({
+        totalContributions,
+        followers: userData.followers ?? 0,
+        repositories: Array.isArray(reposData)
+          ? reposData.length
+          : userData.public_repos ?? 0,
+        streak: calculateStreak(contributions),
+      });
+
+      setError(null);
+    } catch (err: unknown) {
+      console.error('Error fetching GitHub data:', err);
+      setError('Failed to load GitHub data');
+    } finally {
+      setLoading(false);
     }
-  }, [username]);
+  };
 
   /* ------------------------ Helpers ------------------------- */
+
+  const calculateStreak = (contributions: ContributionDay[]): number => {
+    let streak = 0;
+    for (let i = contributions.length - 1; i >= 0; i--) {
+      if (contributions[i].count > 0) streak++;
+      else break;
+    }
+    return streak;
+  };
 
   const getIntensityColor = (intensity: number): string => {
     const colors: string[] = [
