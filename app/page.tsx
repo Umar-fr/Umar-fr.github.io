@@ -15,7 +15,7 @@ export default function Home() {
       <About />
       <Projects />
       <Skills />
-      <GitHubActivity />
+      <GitHubActivity username="umar-fr" />
       <Contact />
       <Footer />
     </main>
