@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohd Umar Farooq — Data Scientist/Engineer & AI Specialist</title>
+  <meta name="description" content="Portfolio of Mohd Umar Farooq, Data Scientist/Engineer and AI Specialist.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2026">
+</head>
+<body>
+
+  <!-- Cursor Spotlight Glow -->
+  <div id="cursor-spotlight"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Preloader -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <div id="loader-progress" class="loader-text">Loading Experience 0%</div>
+    </div>
+  </div>
+
+  <!-- Fixed Pinned Scroll Canvas (Renders BEHIND content) -->
+  <div class="canvas-viewport" id="canvas-viewport">
+    <canvas id="animation-canvas"></canvas>
+    <div class="canvas-overlay-scrim"></div>
+  </div>
+
+  <!-- Main Interactive Content Overlay -->
+  <div class="content-wrapper">
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo">
+          <span class="logo-accent">&lt;</span>Umar.ai<span class="logo-accent">/&gt;</span>
+        </a>
+        <nav class="nav-menu">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#github-activity" class="nav-link">GitHub Stats</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#contact" class="btn-primary">
+            <span>Get In Touch</span>
+            <div class="btn-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="badge-status">
+            <span class="status-dot"></span> Available for Data Science & AI Engineering Roles
+          </div>
+          <h1 class="hero-title">
+            Mohd Umar Farooq
+          </h1>
+          <h2 class="hero-subtitle">
+            Specializing in <span id="typewriter-text" class="text-gradient"></span><span class="typewriter-cursor">|</span>
+          </h2>
+          <div class="typing-svg-container">
+            <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=F85D7F&center=true&vCenter=true&random=false&width=600&height=45&lines=AI%2FML+Engineer;Building+Scalable+AI+Systems;Full-Stack+Developer;Open+Source+Contributor;Machine+Learning+Enthusiast" alt="Typing SVG animation" class="typing-svg-img" loading="lazy">
+          </div>
+          <p class="hero-desc">
+            B.Tech in Computer Science (Artificial Intelligence). Co-Founder of <strong>Octor AI</strong>. 
+            Building cloud data pipelines, FastAPI REST microservices, Azure infrastructure, and LLM post-training (SFT, RLHF).
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-primary btn-large">
+              <span>View Projects</span>
+              <div class="btn-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </a>
+            <a href="https://github.com/Umar-fr" target="_blank" rel="noopener" class="btn-secondary">
+              <img src="https://cdn.simpleicons.org/github/ffffff" class="btn-icon-img" alt="GitHub">
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/umar-fr/" target="_blank" rel="noopener" class="btn-secondary">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+Cgk8cGF0aCBkPSJNMCAwaDEyOHYxMjhIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8cGF0aCBmaWxsPSIjMDA3NmIyIiBkPSJNMTE2IDNIMTJhOC45MSA4LjkxIDAgMCAwLTkgOC44djEwNC40MmE4LjkxIDguOTEgMCAwIDAgOSA4Ljc4aDEwNGE4LjkzIDguOTMgMCAwIDAgOS04LjgxVjExLjc3QTguOTMgOC45MyAwIDAgMCAxMTYgMyIgLz4KCTxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yMS4wNiA0OC43M2gxOC4xMVYxMDdIMjEuMDZ6bTkuMDYtMjlhMTAuNSAxMC41IDAgMSAxLTEwLjUgMTAuNDlhMTAuNSAxMC41IDAgMCAxIDEwLjUtMTAuNDltMjAuNDEgMjloMTcuMzZ2OGguMjRjMi40Mi04LjU4IDguMzItOS40MSAxNy4xMy05LjQxQzEwMy42IDQ3LjI4IDEwNyA1OS4zNSAxMDcgNzV2MzJIODguODlWNzguNjVjMC02Ljc1LS4xMi0xNS40NC05LjQxLTE1LjQ0cy0xMC44NyA3LjM2LTEwLjg3IDE1VjEwN0g1MC41M3oiIC8+Cjwvc3ZnPgo=" class="btn-icon-img" alt="LinkedIn">
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <!-- Hero Metrics -->
+          <div class="metrics-grid">
+            <div class="metric-card interactive-tilt">
+              <span class="metric-number" data-target="2000" data-suffix="+">0</span>
+              <span class="metric-label">GitHub Issues Processed</span>
+            </div>
+            <div class="metric-card interactive-tilt">
+              <span class="metric-number" data-target="92" data-suffix="%">0</span>
+              <span class="metric-label">Plagiarism AI Accuracy</span>
+            </div>
+            <div class="metric-card interactive-tilt">
+              <span class="metric-number" data-target="70" data-prefix="50-" data-suffix="%">0</span>
+              <span class="metric-label">Latency Reduced via Redis</span>
+            </div>
+            <div class="metric-card interactive-tilt">
+              <span class="metric-number" data-target="8.27" data-decimal="true">0</span>
+              <span class="metric-label">B.Tech CGPA (AI)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Core Philosophy</span>
+          <h2 class="section-title">Engineering Intelligence & Cloud Systems</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card interactive-tilt">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            </div>
+            <h3>Cloud & Data Engineering</h3>
+            <p>
+              Designing scalable backend architectures with PostgreSQL, Redis caching, and Azure Container Apps. Experienced with Docker, Git, and automated GitHub Actions CI/CD pipelines.
+            </p>
+          </div>
+
+          <div class="about-card interactive-tilt">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>LLM Post-Training & Alignment</h3>
+            <p>
+              Hands-on experience in Supervised Fine-Tuning (SFT), RLHF pipelines on human preference data, LLM evaluation benchmarks, and prompt engineering for safety and reasoning.
+            </p>
+          </div>
+
+          <div class="about-card interactive-tilt">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Fast Microservices & AI APIs</h3>
+            <p>
+              Building low-latency REST APIs with FastAPI & Flask, WebRTC real-time communication systems, PyTorch sentence transformer models, and automated NLP reporting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Career Journey</span>
+          <h2 class="section-title">Work Experience</h2>
+        </div>
+
+        <div class="timeline">
+
+          <!-- Experience 1 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span class="timeline-date">Dec 2025 — Sep 2026</span>
+              <span class="timeline-role">Co-Founder</span>
+              <span class="timeline-company">Octor AI</span>
+            </div>
+            <div class="timeline-content glass-card interactive-tilt">
+              <h3>Co-Founder & Lead Backend Architect</h3>
+              <p class="timeline-summary">
+                Co-founded <strong>Octor AI</strong>, a platform empowering open-source contributors with structured AI-assisted workflows.
+              </p>
+              <ul class="bullet-list">
+                <li><strong>AI Contribution Mentor Platform:</strong> Built full-stack system (ReactJS, Python, Azure OpenAI API) that ingests and processes 2,000+ real GitHub issues into structured contribution workflows.</li>
+                <li><strong>Backend & Data Architecture:</strong> Designed repository-analysis pipelines using PostgreSQL and Redis, deployed on Azure Container Apps using Docker and GitHub Actions CI/CD.</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tag"><img src="https://cdn.simpleicons.org/python/3776AB" class="tag-icon" alt=""> Python</span>
+                <span class="tag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjA2ZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI0MiI+Cgk8cGF0aCBkPSJNMCAwaDI1NnYyNDJIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8ZGVmcz4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWRzRWNzk1S2dxIiB4MT0iNTguOTcyJSIgeDI9IjM3LjE5MSUiIHkxPSI3LjQxMSUiIHkyPSIxMDMuNzYyJSI+CgkJCTxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxMTRhOGIiIC8+CgkJCTxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA2NjliYyIgLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHenB1cnFjSnIiIHgxPSI1OS43MTklIiB4Mj0iNTIuNjkxJSIgeTE9IjUyLjMxMyUiIHkyPSI1NC44NjQlIj4KCQkJPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1vcGFjaXR5PSIuMyIgLz4KCQkJPHN0b3Agb2Zmc2V0PSI3LjElIiBzdG9wLW9wYWNpdHk9Ii4yIiAvPgoJCQk8c3RvcCBvZmZzZXQ9IjMyLjElIiBzdG9wLW9wYWNpdHk9Ii4xIiAvPgoJCQk8c3RvcCBvZmZzZXQ9IjYyLjMlIiBzdG9wLW9wYWNpdHk9Ii4wNSIgLz4KCQkJPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLW9wYWNpdHk9IjAiIC8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR1o1a0NrWk5yIiB4MT0iMzcuMjc5JSIgeDI9IjYyLjQ3MyUiIHkxPSI0LjYlIiB5Mj0iOTkuOTc5JSI+CgkJCTxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMzY2NiZjQiIC8+CgkJCTxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI4OTJkZiIgLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJPC9kZWZzPgoJPHBhdGggZmlsbD0idXJsKCNTVkc0Vjc5NUtncSkiIGQ9Ik04NS4zNDMuMDAzaDc1Ljc1M0w4Mi40NTcgMjMzYTEyLjA4IDEyLjA4IDAgMCAxLTExLjQ0MiA4LjIxNkgxMi4wNkExMi4wNiAxMi4wNiAwIDAgMSAuNjMzIDIyNS4zMDNMNzMuODk4IDguMjE5QTEyLjA4IDEyLjA4IDAgMCAxIDg1LjM0MyAweiIgLz4KCTxwYXRoIGZpbGw9IiMwMDc4ZDQiIGQ9Ik0xOTUuNDIzIDE1Ni4yODJINzUuMjk3YTUuNTYgNS41NiAwIDAgMC0zLjc5NiA5LjYyN2w3Ny4xOSA3Mi4wNDdhMTIuMTQgMTIuMTQgMCAwIDAgOC4yOCAzLjI2aDY4LjAyeiIgLz4KCTxwYXRoIGZpbGw9InVybCgjU1ZHenB1cnFjSnIpIiBkPSJNODUuMzQzLjAwM2ExMS45OCAxMS45OCAwIDAgMC0xMS40NzEgOC4zNzZMLjcyMyAyMjUuMTA1YTEyLjA0NSAxMi4wNDUgMCAwIDAgMTEuMzcgMTYuMTEyaDYwLjQ3NWExMi45MyAxMi45MyAwIDAgMCA5LjkyMS04LjQzN2wxNC41ODgtNDIuOTkxbDUyLjEwNSA0OC42YTEyLjMzIDEyLjMzIDAgMCAwIDcuNzU3IDIuODI4aDY3Ljc2NmwtMjkuNzIxLTg0.5gNWwtODYuNjQzLjAyTDE2MS4zNy4wMDN6IiAvPgoJPHBhdGggZmlsbD0idXJsKCNTVkdaNWtDa1pOcikiIGQ9Ik0xODIuMDk4IDguMjA3QTEyLjA2IDEyLjA2IDAgMCAwIDE3MC42Ny4wMDNIODYuMjQ1YzUuMTc1IDAgOS43NzMgMy4zMDEgMTEuNDI4IDguMjA0TDE3MC45NCAyMjUuM2ExMi4wNjIgMTIuMDYyIDAgMCAxLTExLjQyOCAxNS45Mmg4NC40MjlhMTIuMDYyIDEyLjA2MiAwIDAgMCAxMS40MjUtMTUuOTJ6IiAvPgo8L3N2Zz4K" class="tag-icon" alt=""> Azure OpenAI</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/postgresql/4169E1" class="tag-icon" alt=""> PostgreSQL</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/redis/FF4438" class="tag-icon" alt=""> Redis</span>
+                <span class="tag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjA2ZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI0MiI+Cgk8cGF0aCBkPSJNMCAwaDI1NnYyNDJIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8ZGVmcz4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWRzRWNzk1S2dxIiB4MT0iNTguOTcyJSIgeDI9IjM3LjE5MSUiIHkxPSI3LjQxMSUiIHkyPSIxMDMuNzYyJSI+CgkJCTxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxMTRhOGIiIC8+CgkJCTxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA2NjliYicIgLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHenB1cnFjSnIiIHgxPSI1OS43MTklIiB4Mj0iNTIuNjkxJSIgeTE9IjUyLjMxMyUiIHkyPSI1NC44NjQlIj4KCQkJPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1vcGFjaXR5PSIuMyIgLz4KCQkJPHN0b3Agb2Zmc2V0PSI3LjElIiBzdG9wLW9wYWNpdHk9Ii4yIiAvPgoJCQk8c3RvcCBvZmZzZXQ9IjMyLjElIiBzdG9wLW9wYWNpdHk9Ii4xIiAvPgoJCQk8c3RvcCBvZmZzZXQ9IjYyLjMlIiBzdG9wLW9wYWNpdHk9Ii4wNSIgLz4KCQkJPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLW9wYWNpdHk9IjAiIC8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR1o1a0NrWk5yIiB4MT0iMzcuMjc5JSIgeDI9IjYyLjQ3MyUiIHkxPSI0LjYlIiB5Mj0iOTkuOTc5JSI+CgkJCTxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMzY2NiZjQiIC8+CgkJCTxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI4OTJkZiIgLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJPC9kZWZzPgoJPHBhdGggZmlsbD0idXJsKCNTVkc0Vjc5NUtncSkiIGQ9Ik04NS4zNDMuMDAzaDc1Ljc1M0w4Mi40NTcgMjMzYTEyLjA4IDEyLjA4IDAgMCAxLTExLjQ0MiA4LjIxNkgxMi4wNkExMi4wNiAxMi4wNiAwIDAgMSAuNjMzIDIyNS4zMDNMNzMuODk4IDguMjE5QTEyLjA4IDEyLjA4IDAgMCAxIDg1LjM0MyAweiIgLz4KCTxwYXRoIGZpbGw9IiMwMDc4ZDQiIGQ9Ik0xOTUuNDIzIDE1Ni4yODJINzUuMjk3YTUuNTYgNS41NiAwIDAgMC0zLjc5NiA5LjYyN2w3Ny4xOSA3Mi4wNDdhMTIuMTQgMTIuMTQgMCAwIDAgOC4yOCAzLjI2aDY4LjAyeiIgLz4KCTxwYXRoIGZpbGw9InVybCgjU1ZHenB1cnFjSnIpIiBkPSJNODUuMzQzLjAwM2ExMS45OCAxMS45OCAwIDAgMC0xMS40NzEgOC4zNzZMLjcyMyAyMjUuMTA1YTEyLjA0NSAxMi4wNDUgMCAwIDAgMTEuMzcgMTYuMTEyaDYwLjQ3NWExMi45MyAxMi45MyAwIDAgMCA5LjkyMS04LjQzN2wxNC41ODgtNDIuOTkxbDUyLjEwNSA0OC42YTEyLjMzIDEyLjMzIDAgMCAwIDcuNzU3IDIuODI4aDY3Ljc2NmwtMjkuNzIxLTg0LjkzNWwtODYuNjQzLjAyTDE2MS4zNy4wMDN6IiAvPgoJPHBhdGggZmlsbD0idXJsKCNTVkdaNWtDa1pOcikiIGQ9Ik0xODIuMDk4IDguMjA3QTEyLjA2IDEyLjA2IDAgMCAwIDE3MC42Ny4wMDNIODYuMjQ1YzUuMTc1IDAgOS43NzMgMy4zMDEgMTEuNDI4IDguMjA0TDE3MC45NCAyMjUuM2ExMi4w6DIxMi4wNjIgMCAwIDEtMS40MjgtMTUuOTJmgDQuNDI5YTEyLjA2MiAxMi4wNjIgMCAwIDAgMTEuNDI1LTE1Ljl6IiAvPgo8L3N2Zz4K" class="tag-icon" alt=""> Azure Container Apps</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/docker/2496ED" class="tag-icon" alt=""> Docker</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/githubactions/2088FF" class="tag-icon" alt=""> CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 2 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span class="timeline-date">Jan 2026 — Mar 2026</span>
+              <span class="timeline-role">LLM Post Training Intern</span>
+              <span class="timeline-company">Ethara AI</span>
+            </div>
+            <div class="timeline-content glass-card interactive-tilt">
+              <h3>LLM Post-Training & Alignment Specialist</h3>
+              <p class="timeline-summary">
+                Focused on instruction tuning, RLHF, and evaluating large language models across complex reasoning tasks.
+              </p>
+              <ul class="bullet-list">
+                <li><strong>Supervised Fine-Tuning (SFT):</strong> Fine-tuned LLMs via instruction tuning on curated instruction-response datasets spanning multiple domains, improving reasoning and alignment.</li>
+                <li><strong>RLHF & Evaluation:</strong> Executed RLHF pipelines on human preference data and engineered LLM evaluation benchmarks and prompt templates to enhance consistency and safety.</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tag"><img src="https://cdn.simpleicons.org/meta/0467DF" class="tag-icon" alt=""> LLM SFT</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/anthropic/ffffff" class="tag-icon" alt=""> RLHF</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/pytorch/EE4C2C" class="tag-icon" alt=""> PyTorch</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/googlegemini/8E75FF" class="tag-icon" alt=""> Prompt Engineering</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" class="tag-icon" alt=""> Model Evaluation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 3 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span class="timeline-date">Jun 2025 — Sep 2025</span>
+              <span class="timeline-role">AI Engineer Intern</span>
+              <span class="timeline-company">UFS Networks</span>
+            </div>
+            <div class="timeline-content glass-card interactive-tilt">
+              <h3>AI Engineer Intern</h3>
+              <p class="timeline-summary">
+                Architected real-time communication systems and optimized NLP inference models for production.
+              </p>
+              <ul class="bullet-list">
+                <li><strong>WebRTC Telephony System:</strong> Built a low-latency WebRTC telephony platform on Linux, significantly improving real-time communication efficiency.</li>
+                <li><strong>Texora AI Chatbot:</strong> Optimized Python NLP inference pipelines, reducing response latency and boosting conversational accuracy.</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tag"><img src="https://cdn.simpleicons.org/webrtc/ffffff" class="tag-icon" alt=""> WebRTC</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/linux/FCC624" class="tag-icon" alt=""> Linux</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/python/3776AB" class="tag-icon" alt=""> Python</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/huggingface/FFD21E" class="tag-icon" alt=""> NLP</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/fastapi/009688" class="tag-icon" alt=""> FastAPI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 4 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span class="timeline-date">Jul 2024 — Nov 2024</span>
+              <span class="timeline-role">RPA Intern</span>
+              <span class="timeline-company">WarpVelocity Technology</span>
+            </div>
+            <div class="timeline-content glass-card interactive-tilt">
+              <h3>Robotic Process Automation Intern</h3>
+              <p class="timeline-summary">
+                Automated multi-department enterprise workflows using intelligent RPA bots.
+              </p>
+              <ul class="bullet-list">
+                <li><strong>Enterprise Automation:</strong> Designed and deployed enterprise bot workflows using Automation Anywhere 360, dramatically cutting manual operational effort.</li>
+              </ul>
+              <div class="tech-tags">
+                <span class="tag"><img src="https://cdn.brandfetch.io/idZH6OyfmQ/w/480/h/480/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B" class="tag-icon" alt=""> Automation Anywhere 360</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/git/F05032" class="tag-icon" alt=""> Workflow Automation</span>
+                <span class="tag">RPA</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Portfolio Highlights</span>
+          <h2 class="section-title">Featured Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <div class="project-card glass-card reveal interactive-tilt">
+            <div class="project-img-box">
+              <img src="assets/TextGuard.jpg" alt="TextGuard Plagiarism System" loading="lazy">
+              <div class="project-badge">AI & Search</div>
+            </div>
+            <div class="project-info">
+              <div class="project-time">May 2025 — Aug 2025</div>
+              <h3 class="project-title">TextGuard: Plagiarism Detection System</h3>
+              <p class="project-desc">
+                Built PyTorch models with Sentence-Transformers embeddings, combining Jaccard and semantic similarity for <strong>~92% combined detection accuracy</strong>. Deployed REST APIs via FastAPI with Redis caching for 50-70% faster repeat checks.
+              </p>
+              <div class="tech-tags">
+                <span class="tag"><img src="https://cdn.simpleicons.org/fastapi/009688" class="tag-icon" alt=""> FastAPI</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/huggingface/FFD21E" class="tag-icon" alt=""> Sentence-Transformers</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/pytorch/EE4C2C" class="tag-icon" alt=""> PyTorch</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/redis/FF4438" class="tag-icon" alt=""> Redis</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Umar-fr/TextGuard-Plagiarism" target="_blank" rel="noopener" class="link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>View Repository</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card glass-card reveal interactive-tilt">
+            <div class="project-img-box">
+              <img src="assets/Mental.jpg" alt="Mental Health Support System" loading="lazy">
+              <div class="project-badge">Generative AI</div>
+            </div>
+            <div class="project-info">
+              <div class="project-time">Aug 2024 — Oct 2024</div>
+              <h3 class="project-title">Mental Health Support System</h3>
+              <p class="project-desc">
+                Developed an LLM-powered conversational chatbot leveraging <strong>Google Generative AI</strong>, Python, and NLTK with real-time sentiment analysis and automated PDF analytics reporting via ReportLab.
+              </p>
+              <div class="tech-tags">
+                <span class="tag"><img src="https://cdn.simpleicons.org/google/4285F4" class="tag-icon" alt=""> Google GenAI</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/python/3776AB" class="tag-icon" alt=""> Python</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/python/3776AB" class="tag-icon" alt=""> NLTK</span>
+                <span class="tag"><img src="https://images.crunchbase.com/image/upload/c_pad,h_24,w_24,f_auto,b_white,q_auto:eco,dpr_2/t_cb-profile-company/v1397203158/223fbc93a48bf878bfe39608c6ab9c33.png?ik-sanitizeSvg=true" class="tag-icon" alt=""> ReportLab</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Umar-fr/mental_health_support_system" target="_blank" rel="noopener" class="link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>View Repository</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card glass-card reveal interactive-tilt">
+            <div class="project-img-box">
+              <img src="assets/Octor Ai Logo.jpeg" alt="Octor AI Engine" loading="lazy">
+              <div class="project-badge">Cloud Platform</div>
+            </div>
+            <div class="project-info">
+              <div class="project-time">Dec 2025 — Sep 2026</div>
+              <h3 class="project-title">Octor AI Infrastructure & Data Pipelines</h3>
+              <p class="project-desc">
+                Ingested and processed 2,000+ real GitHub issues into structured contribution workflows. Built repository-analysis pipelines with PostgreSQL & Redis deployed on Azure Container Apps using Docker & GitHub Actions CI/CD.
+              </p>
+              <div class="tech-tags">
+                <span class="tag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+Cgk8cGF0aCBkPSJNMCAwaDEyOHYxMjhIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8ZGVmcz4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0hZbVZyYjVJIiB4MT0iNjAuOTE5IiB4Mj0iMTguNjY3IiB5MT0iOS42MDIiIHkyPSIxMzQuNDIzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CgkJCTxzdG9wIHN0b3AtY29sb3I9IiMxMTRhOGIiIC8+CgkJCTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA2NjliYyIgLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHUFZ0b3FGM08iIHgxPSI3NC4xMTciIHgyPSI2NC4zNDQiIHkxPSI2Ny43NzIiIHkyPSI3MS4wNzYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KCQkJPHN0b3Agc3RvcC1vcGFjaXR5PSIuMyIgLz4KCQkJPHN0b3Agb2Zmc2V0PSIuMDcxIiBzdG9wLW9wYWNpdHk9Ii4yIiAvPgoJCQk8c3RvcCBvZmZzZXQ9Ii4zMjEiIHN0b3Atb3BhY2l0eT0iLjEiIC8+CgkJCTxzdG9wIG9mZnNldD0iLjYyMyIgc3RvcC1vcGFjaXR5PSIuMDUiIC8+CgkJCTxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIwIiAvPgoJCTwvbGluZWFyR3JhZGllbnQ+CgkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdCOXZpdTNkYyIgeDE9IjY4Ljc0MiIgeDI9IjExNS4xMjIiIHkxPSI1Ljk2MSIgeTI9IjEyOS41MjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KCQkJPHN0b3Agc3RvcC1jb2xvcj0iIzNjY2JmNCIgLz4KCQkJPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjg5MmRmIiAvPgoJCTwvbGluZWFyR3JhZGllbnQ+Cgk8L2RlZnM+Cgk8cGF0aCBmaWxsPSJ1cmwoI1NWR0hZbVZyYjVJKSIgZD0iTTQ2LjA5LjAwMmg0MC42ODVMNDQuNTQxIDEyNS4xMzdhNi40ODUgNi40ODUgMCAwIDEtNi4xNDYgNC40MTNINi43MzNhNi40OCA2LjQ4IDAgMCAxLTUuMjYyLTIuNjk5YTYuNDcgNi40NyAwIDAgMS0uODc2LTUuODQ4TDM5Ljk0NCA0LjQxNEE2LjQ5IDYuNDkgMCAwIDEgNDYuMDkgMHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC41ODcgNC40Njgpc2NhbGUoLjkxOTA0KSIgLz4KCTxwYXRoIGZpbGw9IiMwMDc4ZDQiIGQ9Ik05Ny4yOCA4MS42MDdIMzcuOTg3YTIuNzQzIDIuNzQzIDAgMCAwLTEuODc0IDQuNzUxbDM4LjEgMzUuNTYyYTYgNiAwIDAgMCA0LjA4NyAxLjYxaDMzLjU3NHoiIC8+Cgk8cGF0aCBmaWxsPSJ1cmwoI1NWR1BWdG9xRjNPKSIgZD0iTTQ2LjA5LjAwMkE2LjQzIDYuNDMgMCAwIDAgMzkuOTMgNC41TC42NDQgMTIwLjg5N2E2LjQ3IDYuNDcgMCAwIDAgNi4xMDYgOC42NTNoMzIuNDhhNi45NCA2LjQ4IDAgMCAwIDUuMzI4LTQuNTMxbDcuODM0LTIzLjA4OWwyNy45ODUgMjYuMTAxYTYuNjIgNi42MiAwIDAgMCA0LjE2NSAxLjUxOWgzNi4zOTZsLTE1Ljk2My00NS42MTZsLTQ2LjUzMy4wMTFMODYuOTIyLjAwMnoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC41ODcgNC40Njgpc2NhbGUoLjkxOTA0KSIgLz4KCTxwYXRoIGZpbGw9InVybCgjU1ZHQjl2aXUzZGMpIiBkPSJNOTguMDU1IDQuNDA4QTYuNDggNi40OCAwIDAgMCA5MS45MTcuMDAySDQ2LjU3NWE2LjQ4IDYuNDggMCAwIDEgNi4xMzcgNC40MDZsMzkuMzUgMTE2LjU5NGE2LjQ3NiA2LjQ3NiAwIDAgMS02LjEzNyA4LjU1aDQ1LjM0NGE2LjQ4IDYuNDggMCAwIDAgNi4xMzYtOC41NXoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC41ODcgNC40Njgpc2NhbGUoLjkxOTA0KSIgLz4KPC9zdmc+Cg==" class="tag-icon" alt=""> Azure</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/postgresql/4169E1" class="tag-icon" alt=""> PostgreSQL</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/redis/FF4438" class="tag-icon" alt=""> Redis</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/docker/2496ED" class="tag-icon" alt=""> Docker</span>
+                <span class="tag"><img src="https://cdn.simpleicons.org/githubactions/2088FF" class="tag-icon" alt=""> GitHub Actions</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/OCTOR-AI" target="_blank" rel="noopener" class="link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>Explore Profile</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Technical Stack</span>
+          <h2 class="section-title">Skills & Technologies</h2>
+        </div>
+
+        <!-- Dynamic Skills Filter Bar -->
+        <div class="skills-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Stack</button>
+          <button class="filter-btn" data-filter="ai">AI & Machine Learning</button>
+          <button class="filter-btn" data-filter="data">Data & Databases</button>
+          <button class="filter-btn" data-filter="cloud">Cloud & DevOps</button>
+          <button class="filter-btn" data-filter="web">Web & APIs</button>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-category glass-card reveal interactive-tilt" data-category="data">
+            <div class="category-header">
+              <h3>Languages</h3>
+            </div>
+            <div class="skill-pills">
+              <span class="pill"><img src="https://cdn.simpleicons.org/python/3776AB" class="pill-icon" alt=""> Python</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/postgresql/4169E1" class="pill-icon" alt=""> SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card reveal interactive-tilt" data-category="data">
+            <div class="category-header">
+              <h3>Databases</h3>
+            </div>
+            <div class="skill-pills">
+              <span class="pill"><img src="https://cdn.simpleicons.org/postgresql/4169E1" class="pill-icon" alt=""> PostgreSQL</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/redis/FF4438" class="pill-icon" alt=""> Redis</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/sqlite/003B57" class="pill-icon" alt=""> Advanced SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card reveal interactive-tilt" data-category="data">
+            <div class="category-header">
+              <h3>Data Engineering & BI</h3>
+            </div>
+            <div class="skill-pills">
+              <span class="pill"><img src="https://cdn.simpleicons.org/snowflake/29B5E8" class="pill-icon" alt=""> Snowflake</span>
+              <span class="pill"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+Cgk8cGF0aCBkPSJNMCAwaDI1NnYyNTZIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8cGF0aCBmaWxsPSIjZmY2OTRhIiBkPSJNMjQ1LjEyMSAxMC42NDdjNi4wMTggNS43ODcgOS45NTMgMTMuNDI1IDEwLjg3OSAyMS43NThjMCAzLjQ3Mi0uOTI2IDUuNzg3LTMuMDEgMTAuMTg1Yy0yLjA4MiA0LjM5Ny0yNy43NzUgNDguODM5LTM1LjQxMyA2MS4xMDZjLTQuMzk4IDcuMTc2LTYuNzEzIDE1Ljc0LTYuNzEzIDI4LjA3MmEwIDguNTY1IDIuMzE1IDE2Ljg5OCA2LjcxMyAyNC4wNzNjNy42MzggMTIuMjY4IDMzLjMzIDU2Ljk0IDM1LjQxNCA2MS4zMzhjMi4wODMgNC4zOTggMy4wMDkgNi40OCAzLjAwOSA5Ljk1M2MtLjkyNiA4LjMzMy00LjYzIDE1Ljk3MS0xMC40NDcgMjEuNTI2Yy01Ljc4NyA2LjAxOC0xMy40MjUgOS45NTMtMjEuNTI3IDEwLjY0OGMtMy40NzEgMC01Ljc4Ni0uOTI2LTkuOTUzLTMuMDFzLTQ5LjUzMy0yNy4wOC02MS44LTM0LjcxOWMtLjkyNy0uNDYzLTEuODUyLTEuMTU3LTMuMDEtMS42Mkw4OC40MiAxODAuMDhjMS4zODggMTEuNTczIDYuNDggMjIuNjgzIDE0LjgxMyAzMC43ODRjMS42MiAxLjYyIDMuMjQgMy4wMSA1LjA5MyA0LjM5OGMtMS4zOS42OTQtMy4wMSAxLjM5LTQuMzk4IDIuMzE1Yy0xMi4yNjggNy42MzgtNTYuOTQgMzMuMzMtNjEuMzM4IDM1LjQxNGMtNC4zOTggMi4wODMtNi40ODEgMy4wMDktMTAuMTg1IDMuMDA5Yy04LjMzMy0uOTI2LTE1Ljk3MS00LjYzLTIxLjUyNi0xMC42NDdDNC44NiAyMzkuNTY2LjkyNiAyMzEuOTI4IDAgMjIzLjU5NWMuMjMxLTMuNDcyIDEuMTU3LTYuOTQ0IDMuMDEtOS45NTNjMi4wODItNC4zOTggMjcuNzc1LTQ5LjA3IDM1LjQxMy02MS4zMzhjNC4zOTgtNy4xNzYgNi43MTMtMTUuNTA4IDYuNzEzLTI0LjA3MnMtMi4zMTUtMTYuODk4LTYuNzEzLTI0LjA3M0MzMC43ODUgOTEuNDI5IDQuODYxIDQ2Ljc1NiAzLjAwOSA0Mi4zNThDMS4xNTcgMzkuMzQ4LjIzMSAzNS44NzcgMCAzMi40MDVjLjkyNi04LjMzMyA0LjYzLTE1Ljk3MSAxMC42NDctMjEuNzU4QzE2LjQzNCA0LjYzIDI0LjA3Mi45MjYgMzIuNDA1IDBjMy40NzIuMjMxIDYuOTQ0IDEuMTU3IDEwLjE4NSAzLjAxYzMuNzAzIDEuNjIgMzYuMzQgMjAuNiA1My43IDMwLjc4NGwzLjkzNCAyLjMxNXEqLjA4MyAxLjM4OCAzLjQ3MiAyLjA4M2wxLjg1MiAxLjE1N2w2MS44IDM2LjU3MWMtMS4zODgtMTMuODg4LTguNTYzLTI2LjYxOC0xOS42NzQtMzUuMTgyYzEuMzktLjY5NCAzLjAxLTEuMzkgNC4zOTgtMi4zMTVjMTIuMjY4LTcuNjM4IDU2Ljk0LTMzLjU2MiA2MS4zMzgtMzUuNDE0QzIxNi40MiAxLjE1NyAyMTkuODkxLjIzMSAyMjMuNTk1IDBhMzUuNDMgMzUuNDMgMCAwIDEgMjEuNTI2IDEwLjY0N20tMTEzLjg4IDEzMy43ODdsMTMuMTkzLTEzLjE5NGMxLjg1Mi0xLjg1MSAxLjg1Mi00LjYyOSAwLTYuNDhsLTEzLjE5NC0xMy4xOTRjLTEuODUxLTEuODUyLTQuNjI5LTEuODUyLTYuNDggMGwtMTMuMTk0IDEzLjE5NGMtMS44NTIgMS44NTEtMS44NTIgNC42MjkgMCA2LjQ4bDEzLjE5NCAxMy4xOTRjMS42MiAxLjYyIDQuNjI5IDEuNjIgNi40OCAwIiAvPgo8L3N2Zz4K" class="pill-icon" alt=""> dbt</span>
+              <span class="pill"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIwLjc1ZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDM0MiI+Cgk8cGF0aCBkPSJNMCAwaDI1NnYzNDJIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8ZGVmcz4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0NkZ2huYmxGIiB4MT0iNDIuNTkzJSIgeDI9IjU3LjI0NSUiIHkxPSIwJSIgeTI9IjkzLjE3NCUiPgoJCQk8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZTZhZDEwIiAvPgoJCQk8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjODdlMGUiIC8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWRzV0YXBLZG9mIiB4MT0iNDAuMTIyJSIgeDI9IjYyLjA2OCUiIHkxPSIwJSIgeTI9Ijk1LjU5MiUiPgoJCQk8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZjZkNzUxIiAvPgoJCQk8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmFkMTAiIC8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR1J2andzY1ZwIiB4MT0iMjcuNzc0JSIgeDI9IjU1LjAxMiUiIHkxPSIwJSIgeTI9Ijk2LjgyOCUiPgoJCQk8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZjllNTg5IiAvPgoJCQk8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNmQ3NTEiIC8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBpZD0iU1ZHdkF2Z05jNFQiIGQ9Ik0xNDIuMjIyIDE0LjIyMkMxNDIuMjIyIDYuMzY4IDE0OC41OSAwIDE1Ni40NDQgMGg4NS4zMzRDMjQ5LjYzMiAwIDI1NiA2LjM2OCAyNTYgMTQuMjIydjMxMi44OWMwIDcuODU0LTYuMzY4IDE0LjIyMS0xNC4yMjIgMTQuMjIxSDE0LjIyMkM2LjM2OCAzNDEuMzMzIDAgMzM0Ljk2NiAwIDMyNy4xMTFWMTg0Ljg5YzAtNy44NTUgNi4zNjgtMTQuMjIyIDE0LjIyMi0xNC4yMjJoNTYuODlWOTkuNTU2YzAtNy44NTUgNi4zNjctMTQuMjIzIDE0LjIyMi0xNC4yMjNoNTYuODg4eiIgLz4KCTwvZGVmcz4KCTxtYXNrIGlkPSJTVkd2Q1Y1d2NsTCIgZmlsbD0iI2ZmZiI+CgkJPHVzZSBocmVmPSIjU1ZHdkF2Z05jNFQiIC8+Cgk8L21hc2s+Cgk8cGF0aCBmaWxsPSJ1cmwoI1NWR0NkZ2huYmxGKSIgZD0iTTI1NiAwdjM0MS4zMzNIMTQyLjIyMlYweiIgbWFzaz0idXJsKCNTVkd2Q1Y1d2NsTCkiIC8+Cgk8cGF0aCBmaWxsLW9wYWNpdHk9Ii4yIiBkPSJNMTg0Ljg4OSAxMDAuOTc4djI0MS43NzhINzEuMTF2LTI1Nmg5OS41NTZjNy44NTQgMCAxNC4yMjIgNi4zNjcgMTQuMjIyIDE0LjIyMiIgbWFzaz0idXJsKCNTVkd2Q1Y1d2NsTCkiIC8+Cgk8cGF0aCBmaWxsLW9wYWNpdHk9Ii4xOCIgZD0iTTE4NC44ODkgMTA2LjY2N3YyNDEuNzc3SDcxLjExdi0yNTZoOTkuNTU2YzcuODU0IDAgMTQuMjIyIDYuMzY4IDE0LjIyMiAxNC4yMjMiIG1hc2s9InVybCgjU1ZHdkNWNXdjbEwpIiAvPgoJPHBhdGggZmlsbD0idXJsKCNTVkc1dGFwS2RvZikiIGQ9Ik0xODQuODg5IDk5LjU1NnYyNDEuNzc3SDcxLjExdi0yNTZoOTkuNTU2YzcuODU0IDAgMTQuMjIyIDYuMzY4IDE0LjIyMiAxNC4yMjMiIG1hc2s9InVybCgjU1ZHdkNWNXdjbEwpIiAvPgoJPHBhdGggZmlsbD0idXJsKCNTVkdSdmp3c2NWcCkiIGQ9Ik0wIDE3MC42Njd2MTcwLjY2NmgxMTMuNzc4VjE4NC44OWMwLTcuODU1LTYuMzY4LTE0LjIyMi0xNC4yMjItMTQuMjIyeiIgbWFzaz0idXJsKCNTVkd2Q1Y1d2NsTCkiIC8+Cjwvc3ZnPgo=" class="pill-icon" alt=""> Power BI</span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card reveal interactive-tilt" data-category="ai">
+            <div class="category-header">
+              <h3>AI & Machine Learning</h3>
+            </div>
+            <div class="skill-pills">
+              <span class="pill"><img src="https://cdn.simpleicons.org/pytorch/EE4C2C" class="pill-icon" alt=""> PyTorch</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/tensorflow/FF6F00" class="pill-icon" alt=""> TensorFlow</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/huggingface/FFD21E" class="pill-icon" alt=""> Sentence-Transformers</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/scikitlearn/F7931E" class="pill-icon" alt=""> Scikit-learn</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/python/3776AB" class="pill-icon" alt=""> NLTK</span>
+              <span class="pill"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+Cgk8cGF0aCBkPSJNMCAwaDUxMnY1MTJIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTM2LjQgMjkxLjljLTE4LjktMTEtMzEuOS0zNS0zMS45LTU4YzAtMjcuNSAxNi44LTUyLjIgNDIuMi02MS44djc5LjZjMCA0LjUgMS43IDcuNiA1LjggMTBsODcuNSA1MC44bC0zMC45IDE3LjhjLTEuNyAxLTQuNSAxLTYuMiAwem0zMS42LTQyLjJsMzAuNiAxOC4yVjE2Ni42YzAtNC41IDEuNy03LjYgNS44LTEwbDY5LTQwLjJjLTExLjctOS4zLTI2LjEtMTQuNC00MS4yLTE0LjRjLTM4LjggMC02Ny4zIDI4LjEtNjcuMyA2NS42djc2LjVjMCAyLjUuNyA0LjIgMy4xIDUuNm00OC44IDI5LjFsNDEuNSAyMy4zbDQxLjItMjMuM3YtNDkuNGwtNDEuMi0yMy4zbC00MS41IDIzLjN6bTAtMTA1djM1LjdsODcuNS01MS4xYzQuMS0yLjQgNy45LTIuMSAxMS4zIDBsNjkuMyA0MC41Yy43LTMuMS43LTYuOS43LTkuNmMwLTM0LjctMjYuNC02Ni45LTY4LjMtNjYuOWMtMTEgMC0yMi4zIDIuNC0zMS4yIDcuNmwtNjYuMiAzOC40Yy0yLjUgMS4zLTMuMSAzLTMuMSA1LjRNNTEyIDI1NmMwIDE0MS40LTExNC42IDI1Ni0yNTYgMjU2UzAgMzk3LjQgMCAyNTZTMTE0LjYgMCAyNTYgMHMyNTYgMTE0LjYgMjU2IDI1Nm0tODUuNyAxOC40YzAtMjQtMTAuMy00Ny0yOS4yLTYzLjhjMS43LTcuMiAzLjEtMTQuOCAzLjEtMjJjMC00OC40LTM5LjUtODQuOC04NC44LTg0LjhjLTkuMyAwLTE4LjUgMS43LTI3LjUgNC44Yy0xNS40LTE1LjQtMzYuNC0yNS4xLTU5LjctMjUuMWMtNDEuMiAwLTc1LjUgMjkuNS04My4xIDY4LjdjLTM4LjQgOS42LTYzLjIgNDUuMy02My4yIDgxLjdjMCAyNCAxMC4zIDQ3IDI5LjIgNjMuOGMtMS43IDcuMi0zLjEtMTQuOC0zLjEtMjJjMCA0OC40IDM5LjUgODQuOCA4NC44IDg0LjhjOS4zIDAgMTguNS0xLjcgMjcuNS00LjhjMTUuNCAxNS40IDM2LjQgMjUuMSA1OS43IDI1LjFjNDEuMiAwIDc1LjUtMjkuNSA4My4xLTY4LjdjMzguNC05LjYgNjMuMi00NS4zIDYzLjItODEuN20tNTAuNS01OEwzMDkuMiAxNzhjLTEuNy0xLTQuNS0xLTYuMiAwbC0zMC45IDE3LjhsODcuOSA1MS4xYzQuMSAyLjQgNS44IDUuNUg1LjggMTB2NzkuM2MyNS40LTkuNiA0MS45LTM0LjcgNDEuOS02MS44YzAtMjMtMTMtNDcuMS0zMS45LTU4bS04MC4zIDExOHYtMzUuN0wyMDggMzQ5LjVjLTQuMSAyLjQtNy42IDIuNC0xMS43IDBsLTY5LTM5LjhjLS4zIDMuMS0uNyA2LjUtLjcgMTBjMCAzNi43IDI4LjggNjYuMiA2OC4zIDY2LjJjMTEgMCAyMi4zLTIuNCAzMS4yLTcuNmw2Ni4yLTM4LjRjMi41LTEuMyAzLjItMy4xIDMuMi01LjVtNDkuMS03NS44bC0zMC45LTE4LjJ2MTAxLjNjMCA0LjUtMS43IDcuNi01LjggMTBsLTY5IDQwLjJjMTEuNyA5LjMgMjYuMSAxNC40IDQxLjIgMTQuNGMzOC44IDAgNjcuNi0yOC4xIDY3LjYtNjUuNnYtNzYuNWMwLTIuNS0uNy00LjItMy4xLTUuNiIgLz4KPC9zdmc+Cg==" class="pill-icon" alt=""> OpenAI</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/meta/0467DF" class="pill-icon" alt=""> SFT</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/anthropic/ffffff" class="pill-icon" alt=""> RLHF</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/googlegemini/8E75FF" class="pill-icon" alt=""> Prompt Engineering</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" class="pill-icon" alt=""> LLM Evaluation</span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card reveal interactive-tilt" data-category="web">
+            <div class="category-header">
+              <h3>Web & APIs</h3>
+            </div>
+            <div class="skill-pills">
+              <span class="pill"><img src="https://cdn.simpleicons.org/fastapi/009688" class="pill-icon" alt=""> FastAPI</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/flask/ffffff" class="pill-icon" alt=""> Flask</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/react/61DAFB" class="pill-icon" alt=""> ReactJS</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/postman/FF6C37" class="pill-icon" alt=""> REST APIs</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/webrtc/ffffff" class="pill-icon" alt=""> WebRTC</span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card reveal interactive-tilt" data-category="cloud">
+            <div class="category-header">
+              <h3>Cloud & DevOps</h3>
+            </div>
+            <div class="skill-pills">
+              <span class="pill"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+Cgk8cGF0aCBkPSJNMCAwaDEyOHYxMjhIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8ZGVmcz4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0hZbVZyYjVJIiB4MT0iNjAuOTE5IiB4Mj0iMTguNjY3IiB5MT0iOS42MDIiIHkyPSIxMzQuNDIzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CgkJCTxzdG9wIHN0b3AtY29sb3I9IiMxMTRhOGIiIC8+CgkJCTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA2NjliYyIgLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHUFZ0b3FGM08iIHgxPSI3NC4xMTciIHgyPSI2NC4zNDQiIHkxPSI2Ny43NzIiIHkyPSI3MS4wNzYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KCQkJPHN0b3Agc3RvcC1vcGFjaXR5PSIuMyIgLz4KCQkJPHN0b3Agb2Zmc2V0PSIuMDcxIiBzdG9wLW9wYWNpdHk9Ii4yIiAvPgoJCQk8c3RvcCBvZmZzZXQ9Ii4zMjEiIHN0b3Atb3BhY2l0eT0iLjEiIC8+CgkJCTxzdG9wIG9mZnNldD0iLjYyMyIgc3RvcC1vcGFjaXR5PSIuMDUiIC8+CgkJCTxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIwIiAvPgoJCTwvbGluZWFyR3JhZGllbnQ+CgkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdCOXZpdTNkYyIgeDE9IjY4Ljc0MiIgeDI9IjExNS4xMjIiIHkxPSI1Ljk2MSIgeTI9IjEyOS41MjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KCQkJPHN0b3Agc3RvcC1jb2xvcj0iIzNjY2JmNCIgLz4KCQkJPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9IjAiIC8+CgkJPC9saW5lYXJHcmFkaWVudD4KCTwvZGVmcz4KCTxwYXRoIGZpbGw9InVybCgjU1ZHSFltVnJiNUkpIiBkPSJNOTguMDU1IDQuNDA4QTYuNDggNi40OCAwIDAgMCA5MS45MTcuMDAySDQ2LjU3NWE2LjQ4IDYuNDggMCAwIDEgNi4xMzcgNC40MDZsMzkuMzUgMTE2LjU5NGE2LjQ3NiA2LjQ3NiAwIDAgMS02LjEzNyA4LjU1aDQ1LjM0NGE2LjQ4IDYuNDggMCAwIDAgNi4xMzYtOC41NXoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC41ODcgNC40Njgpc2NhbGUoLjkxOTA0KSIgLz4KPC9zdmc+Cg==" class="pill-icon" alt=""> Azure Cloud</span>
+              <span class="pill"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+Cgk8cGF0aCBkPSJNMCAwaDEyOHYxMjhIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8ZGVmcz4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0hZbVZyYjVJIiB4MT0iNjAuOTE5IiB4Mj0iMTguNjY3IiB5MT0iOS42MDIiIHkyPSIxMzQuNDIzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CgkJCTxzdG9wIHN0b3AtY29sb3I9IiMxMTRhOGIiIC8+CgkJCTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA2NjliYyIgLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHUFZ0b3FGM08iIHgxPSI3NC4xMTciIHgyPSI2NC4zNDQiIHkxPSI2Ny43NzIiIHkyPSI3MS4wNzYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KCQkJPHN0b3Agc3RvcC1vcGFjaXR5PSIuMyIgLz4KCQkJPHN0b3Agb2Zmc2V0PSIuMDcxIiBzdG9wLW9wYWNpdHk9Ii4yIiAvPgoJCQk8c3RvcCBvZmZzZXQ9Ii4zMjEiIHN0b3Atb3BhY2l0eT0iLjEiIC8+CgkJCTxzdG9wIG9mZnNldD0iLjYyMyIgc3RvcC1vcGFjaXR5PSIuMDUiIC8+CgkJCTxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIwIiAvPgoJCTwvbGluZWFyR3JhZGllbnQ+CgkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdCOXZpdTNkYyIgeDE9IjY4Ljc0MiIgeDI9IjExNS4xMjIiIHkxPSI1Ljk2MSIgeTI9IjEyOS41MjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KCQkJPHN0b3Agc3RvcC1jb2xvcj0iIzNjY2JmNCIgLz4KCQkJPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjg5MmRmIiAvPgoJCTwvbGluZWFyR3JhZGllbnQ+Cgk8L2RlZnM+Cgk8cGF0aCBmaWxsPSJ1cmwoI1NWR0hZbVZyYjVJKSIgZD0iTTQ2LjA5LjAwMmg0MC42ODVMNDQuNTQxIDEyNS4xMzdhNi40ODUgNi40ODUgMCAwIDEtNi4xNDYgNC40MTNINi43MzNhNi40OCA2LjQ4IDAgMCAxLTUuMjYyLTIuNjk5YTYuNDcgNi40NyAwIDAgMS0uODc2LTUuODQ4TDM5Ljk0NCA0LjQxNEE2LjQ5IDYuNDkgMCAwIDEgNDYuMDkgMHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC41ODcgNC40Njgpc2NhbGUoLjkxOTA0KSIgLz4KCTxwYXRoIGZpbGw9IiMwMDc4ZDQiIGQ9Ik05Ny4yOCA4MS42MDdIMzcuOTg3YTIuNzQzIDIuNzQzIDAgMCAwLTEuODc0IDQuNzUxbDM4LjEgMzUuNTYyYTYgNiAwIDAgMCA0LjA4NyAxLjYxaDMzLjU3NHoiIC8+Cgk8cGF0aCBmaWxsPSJ1cmwoI1NWR1BWdG9xRjNPKSIgZD0iTTQ2LjA5LjAwMkE2LjQzIDYuNDMgMCAwIDAgMzkuOTMgNC41TC42NDQgMTIwLjg5N2E2LjQ3IDYuNDcgMCAwIDAgNi4xMDYgOC42NTNoMzIuNDhhNi45NCA2LjQ4IDAgMCAwIDUuMzI4LTQuNTMxbDcuODM0LTIzLjA4OWwyNy45ODUgMjYuMTAxYTYuNjIgNi42MiAwIDAgMCA0LjE2NSAxLjUxOWgzNi4zOTZsLTE1Ljk2My00NS42MTZsLTQ2LjUzMy4wMTFMODYuOTIyLjAwMnoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC41ODcgNC40Njgpc2NhbGUoLjkxOTA0KSIgLz4KCTxwYXRoIGZpbGw9InVybCgjU1ZHQjl2aXUzZGMpIiBkPSJNOTguMDU1IDQuNDA4QTYuNDggNi40OCAwIDAgMCA5MS45MTcuMDAySDQ2LjU3NWE2LjQ4IDYuNDggMCAwIDEgNi4xMzcgNC40MDZsMzkuMzUgMTE2LjU5NGE2LjQ3NiA2LjQ3NiAwIDAgMS02LjEzNyA4LjU1aDQ1LjM0NGE2LjQ4IDYuNDggMCAwIDAgNi4xMzYtOC41NXoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC41ODcgNC40Njgpc2NhbGUoLjkxOTA0KSIgLz4KPC9zdmc+Cg==" class="pill-icon" alt=""> Azure Container Apps</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/docker/2496ED" class="pill-icon" alt=""> Docker</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/githubactions/2088FF" class="pill-icon" alt=""> GitHub Actions</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/github/ffffff" class="pill-icon" alt=""> CI/CD</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/git/F05032" class="pill-icon" alt=""> Git</span>
+              <span class="pill"><img src="https://cdn.simpleicons.org/linux/FCC624" class="pill-icon" alt=""> Linux</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Statistics & Activity Section -->
+    <section class="section github-section" id="github-activity">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Open Source & Metrics</span>
+          <h2 class="section-title">📊 GitHub Statistics & Activity</h2>
+        </div>
+
+        <div class="github-dashboard">
+          
+          <!-- Streak Stats -->
+          <div class="github-card glass-card reveal interactive-tilt">
+            <h3 class="github-card-title">🔥 GitHub Contribution Streak</h3>
+            <div class="github-img-wrapper">
+              <a href="https://github.com/Umar-fr" target="_blank" rel="noopener">
+                <img src="https://github-readme-streak-stats-eight.vercel.app/?user=Umar-fr&theme=radical&border=7F3FBF&background=0D1117" alt="Umar's GitHub Streak Stats" loading="lazy">
+              </a>
+            </div>
+          </div>
+
+          <!-- Dual Stats Row -->
+          <div class="github-stats-row reveal">
+            <div class="github-card glass-card interactive-tilt">
+              <h3 class="github-card-title">📈 Overall Activity & Metrics</h3>
+              <div class="github-img-wrapper">
+                <a href="https://github.com/Umar-fr" target="_blank" rel="noopener">
+                  <img src="https://denvercoder1-github-readme-stats.vercel.app/api?username=Umar-fr&show_icons=true&count_private=true&theme=react&border_color=7F3FBF&bg_color=0D1117&title_color=F85D7F&icon_color=F8D866" alt="Umar's GitHub Stats" loading="lazy">
+                </a>
+              </div>
+            </div>
+
+            <div class="github-card glass-card interactive-tilt">
+              <h3 class="github-card-title">⚡ Top Languages</h3>
+              <div class="github-img-wrapper">
+                <a href="https://github.com/Umar-fr" target="_blank" rel="noopener">
+                  <img src="https://denvercoder1-github-readme-stats.vercel.app/api/top-langs/?username=Umar-fr&langs_count=8&layout=compact&theme=react&border_color=7F3FBF&bg_color=0D1117&title_color=F85D7F&icon_color=F8D866" alt="Umar's Top Languages" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3D Contribution Calendar -->
+          <div class="github-card glass-card reveal interactive-tilt">
+            <h3 class="github-card-title">🧊 3D Contribution Calendar</h3>
+            <div class="github-img-wrapper calendar-wrapper">
+              <img src="./profile-3d-contrib/profile-night-rainbow.svg" onError="this.onerror=null; this.src='https://raw.githubusercontent.com/Umar-fr/Umar-fr/main/profile-3d-contrib/profile-night-rainbow.svg';" alt="3D Contribution Calendar" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Contribution Snake -->
+          <div class="github-card glass-card reveal interactive-tilt">
+            <h3 class="github-card-title">🐍 Contribution Snake</h3>
+            <div class="github-img-wrapper snake-wrapper">
+              <img src="https://raw.githubusercontent.com/Umar-fr/Umar-fr/output/snake.svg" alt="Snake animation" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Random Dev Quote -->
+          <div class="github-card glass-card reveal interactive-tilt">
+            <h3 class="github-card-title">💭 Random Dev Quote</h3>
+            <div class="github-img-wrapper quote-wrapper">
+              <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random Dev Quote" loading="lazy">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Academic & Credentials</span>
+          <h2 class="section-title">Education & Certifications</h2>
+        </div>
+
+        <div class="edu-grid">
+          
+          <!-- Education Card -->
+          <div class="edu-card glass-card reveal interactive-tilt">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-meta">
+              <span class="edu-date">Nov 2022 — Jun 2026</span>
+              <h3>Jamia Hamdard University</h3>
+              <p class="degree">B.Tech in Computer Science Engineering (Artificial Intelligence)</p>
+              <div class="cgpa-badge">CGPA: 8.27 / 10</div>
+              <p class="coursework">
+                <strong>Relevant Coursework:</strong> Data Structures & Algorithms, Machine Learning, Deep Learning, AI, Computer Networks, DBMS, OOP
+              </p>
+            </div>
+          </div>
+
+          <!-- Certifications Card -->
+          <div class="cert-card glass-card reveal interactive-tilt">
+            <h3>Verified Certifications</h3>
+            <ul class="cert-list">
+              <li>
+                <span class="cert-badge">IBM</span>
+                <a href="https://www.credly.com/badges/422bb53d-b489-4ea1-860b-f45ffce11009/public_url" target="_blank" rel="noopener">Python for Data Science ↗</a>
+              </li>
+              <li>
+                <span class="cert-badge">AWS</span>
+                <a href="https://drive.google.com/file/d/1vSyZOdMHv9C5iw_Sv-nkwYMGhQ3CGPX6/view?usp=sharing" target="_blank" rel="noopener">Introduction to Generative AI ↗</a>
+              </li>
+              <li>
+                <span class="cert-badge">Automation Anywhere</span>
+                <a href="https://drive.google.com/file/d/1ysGpIUjGSz_8Hr4Rxf9YqWAJnVHkO0TX/view?usp=sharing" target="_blank" rel="noopener">Automating Tasks Using Automation 360 ↗</a>
+              </li>
+              <li>
+                <span class="cert-badge">Automation Anywhere</span>
+                <a href="https://drive.google.com/file/d/1eabgDMkrRfheGuq6vZ4liGLRYfG1NLIl/view?usp=sharing" target="_blank" rel="noopener">Building Resilient Bots Using Automation 360 ↗</a>
+              </li>
+              <li>
+                <span class="cert-badge">GDG Delhi</span>
+                <a href="https://drive.google.com/file/d/1RkBnkUbX3Ew0DCYI4TVZskmjJ6QLzuuR/view?usp=sharing" target="_blank" rel="noopener">24-Hour Hackathon by GDG Delhi ↗</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer class="footer-section" id="contact">
+      <div class="container">
+        <div class="contact-box glass-card reveal interactive-tilt">
+          <div class="contact-header">
+            <span class="section-subtitle">Let's Connect</span>
+            <h2>Interested in working together?</h2>
+            <p>I'm open to Data Engineering, Data Science, AI Systems, and Cloud Backend opportunities.</p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item copyable-btn" id="copy-email-btn" title="Click to copy email">
+              <span class="icon">📧</span>
+              <a href="mailto:reach.mdumar@gmail.com" id="email-text" onclick="event.preventDefault();">reach.mdumar@gmail.com</a>
+              <span class="copy-badge">Copy</span>
+            </div>
+            <div class="contact-item">
+              <span class="icon">📱</span>
+              <a href="tel:+919990799515">+91 9990799515</a>
+            </div>
+            <div class="contact-item">
+              <span class="icon">📍</span>
+              <span>New Delhi, India</span>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a href="mailto:reach.mdumar@gmail.com" class="btn-primary btn-large">
+              <span>Send Me an Email</span>
+              <div class="btn-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Mohd Umar Farooq. Built with love.</p>
+          <div class="footer-socials">
+            <a href="https://github.com/Umar-fr" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/umar-fr/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:reach.mdumar@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js?v=2026"></script>
+</body>
+</html>
